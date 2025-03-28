@@ -35,7 +35,7 @@ public final class ProductServiceImpl implements ProductService {
         } else {
             User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             String error = "No products found";
-            logger.error("User: {}. Error: {}", currentUser.getUsername(), error);
+            logger.warn("User: {}. Error: {}", currentUser.getUsername(), error);
             throw new ProductException(error);
         }
     }
@@ -74,7 +74,7 @@ public final class ProductServiceImpl implements ProductService {
         } else {
             User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             String error = "No products found with name containing " + name;
-            logger.error("User: {}. Error: {}", currentUser.getUsername(), error);
+            logger.warn("User: {}. Error: {}", currentUser.getUsername(), error);
             throw new ProductException(error);
         }
     }
